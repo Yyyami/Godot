@@ -3,6 +3,9 @@
 #https://arwe7.itch.io/free-pixel-art-props-pack
 #https://scrimsy.itch.io/fruit-icons-16x16
 #https://shaderloom.itch.io/icon-pack-glassy-pixel-evolution-stones-dedicated-evolution-stone-set-core-and-r
+https://szadiart.itch.io/craftland-demo
+https://pixelbean.itch.io/test
+https://rafaelmatos.itch.io/epic-rpg-world-free-house-interiors
 
 996
 流水线工厂
@@ -17,6 +20,7 @@
 参数身份证
 饲料、投喂
 调整光线才能看见的线索
+巨大的餐具、食器
 
 
 昼夜的本质： 白天是同质性经济的炼金舱，专注于功能性积累；夜晚的沙漠探索是进入异质性领域，进行无目的的、纯粹的“耗费”（时间和San值），以争取自主权（鸟歌）。
