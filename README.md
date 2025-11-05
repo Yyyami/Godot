@@ -46,7 +46,6 @@ func _on_draw_button_pressed():
 		texture_rects[i].texture = items[name]
 
 
-# ------------------
 # 抽取 N 个素材
 func pick_weighted_items(n: int) -> Array:
 	var results := []
