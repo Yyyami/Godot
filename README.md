@@ -1,3 +1,71 @@
 # Godot
 
 
+# File: omikuji_ui.gd
+extends CanvasLayer
+
+@export var items := {
+	"time": preload("res://slot/time.png"),
+	"love": preload("res://slot/love.png"),
+	"health": preload("res://slot/health.png"),
+	"dream": preload("res://slot/dream.png")
+}
+
+var weights := {
+	"time": 0.4,
+	"love": 0.3,
+	"health": 0.2,
+	"dream": 0.1
+}
+
+@onready var texture_rects := [
+	$GridContainer/TextureRect,
+	$GridContainer/TextureRect2,
+	$GridContainer/TextureRect3,
+	$GridContainer/TextureRect4,
+	$GridContainer/TextureRect5,
+	$GridContainer/TextureRect6,
+	$GridContainer/TextureRect7,
+	$GridContainer/TextureRect8,
+	$GridContainer/TextureRect9
+]
+
+@onready var button: Button = $Button
+
+
+func _ready():
+	randomize()
+	button.pressed.connect(_on_draw_button_pressed)
+
+func _on_draw_button_pressed():
+	var results = pick_weighted_items(10)
+	print("抽到的10个素材:", results)
+	
+	for i in range(texture_rects.size()):
+		var name = results[i]
+		texture_rects[i].texture = items[name]
+
+
+# ------------------
+# 抽取 N 个素材
+func pick_weighted_items(n: int) -> Array:
+	var results := []
+	for i in range(n):
+		results.append(pick_weighted_item())
+	return results
+
+# 抽一个素材
+func pick_weighted_item() -> String:
+	var total_weight = 0.0
+	for w in weights.values():
+		total_weight += w
+	
+	var r = randf() * total_weight
+	var cumulative = 0.0
+	
+	for key in weights.keys():
+		cumulative += weights[key]
+		if r < cumulative:
+			return key
+	
+	return weights.keys()[0]  # 保底
